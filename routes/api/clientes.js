@@ -25,22 +25,22 @@ router.post('/create', [
 
     if (!errors.isEmpty()) {
         return res.status(422).json(errors.array());
-    }
+    };
 
     const result = await Cliente.create(req.body)
     res.json(result);
-})
+});
 
 
-// PUT http://localhost:3000/api/clientes/edit
+// PATCH http://localhost:3000/api/clientes/edit:/id
 router.patch('/edit/:id', async (req, res) => {
     const result = await Cliente.editCliente(req.body, req.params.id);
     if (result['affectedRows'] === 1) {
         res.json(result);
     } else {
         res.json({ error: 'El cliente no se ha editado' })
-    }
-})
+    };
+});
 
 
 //DELETE http://localhost:3000/api/clientes/delete
@@ -50,7 +50,7 @@ router.delete('/delete', async (req, res) => {
         res.json(result);
     } else {
         res.json({ error: 'El cliente no se ha borrado' })
-    }
-})
+    };
+});
 
 module.exports = router;
