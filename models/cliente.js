@@ -3,7 +3,7 @@ const getAll = () => {
         db.query('select * from clientes', (err, rows) => {
             if (err) reject(err);
             resolve(rows);
-        })
+        });
     });
 };
 
@@ -19,13 +19,13 @@ const create = ({ nombre, apellidos, direccion, email, edad, sexo, cuota, fecha_
 }
 
 
-const editCliente = ({ email, id }) => {
+const editCliente = ({ email }, id) => {
     return new Promise((resolve, reject) => {
         db.query('update clientes set email = ? where id = ?', [email, id], (err, result) => {
             if (err) reject(err);
             resolve(result);
-        })
-    })
+        });
+    });
 }
 
 
