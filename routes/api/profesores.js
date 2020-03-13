@@ -33,8 +33,8 @@ router.patch('/edit/:id', async (req, res) => {
 
 //DELETE http://localhost:3000/api/profesores/delete
 router.delete('/delete/:id', function (req, res) {
-    const result = Profesor.deleteProfesor(req.params.id)
-        .then(function () {
+    Profesor.deleteProfesor(req.params.id)
+        .then(function (result) {
             res.json(result);
         }).catch(function () {
             res.json('Ha habido un error al borrar')
